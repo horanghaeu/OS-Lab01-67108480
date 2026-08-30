@@ -1,7 +1,7 @@
 ======================================================
-COE67-XXX Operating Systems - Lab 01 Report
-Name: 
-Student ID: 
+COE67-222 Operating Systems - Lab 01 Report
+Name: Achiraya Dulyaporn
+Student ID: 67108480
 ======================================================
 
 1. Hardware Baseline:
