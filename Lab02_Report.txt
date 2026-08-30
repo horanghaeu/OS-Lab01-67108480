@@ -1,0 +1,18 @@
+======================================================
+COE67-222 Operating Systems - Lab 02 Report
+Name: Achiraya Dulyaporn
+Student ID: 67108480
+======================================================
+1. Execution Time Comparison:
+- Sequential Time: 8.77 seconds
+- Multithreading Time: 9.31 seconds
+- Multiprocessing Time: 8.02 seconds
+
+2. System Observation (htop):
+When running the Multithreading script, htop showed that only one CPU core was fully utilized at 100% (or CPU usage rapidly switched between cores sequentially), while the other cores remained mostly idle. On the other hand, when running the Multiprocessing script, all available CPU cores spiked to 100% simultaneously, demonstrating true parallel hardware utilization across multi-core CPUs.
+
+3. Analysis (The GIL):
+Multithreading failed to speed up performance because Python’s Global Interpreter Lock (GIL) restricts execution to a single thread at a time for CPU-bound tasks, causing threads to run sequentially. In contrast, Multiprocessing bypasses the GIL by creating separate OS processes with independent memory spaces, enabling true multi-core parallel processing and significantly reducing execution time.
+
+4. OS Internals - Preventing Zombie Processes:
+A child process becomes a Zombie process (indicated by state 'Z' or '<defunct>' in the process table) when it terminates but its parent process fails to read its exit status. To prevent zombie processes, the parent process must execute the os.wait() or os.waitpid() system call to reap the terminated child process and release its entry from the OS process table.
